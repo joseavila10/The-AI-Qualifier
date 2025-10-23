@@ -213,7 +213,6 @@ export const getCompanyInformationAndGenerateIcp = async(req:NextApiRequest, res
             });
         }
 
-        // const text = response.data.replace(/<[^>]*>?/gm, " ").slice(0, 3000);
         const text = response.data
             .replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, "")
             .replace(/<style[\s\S]*?>[\s\S]*?<\/style>/gi, "")
@@ -304,8 +303,17 @@ export const getCompanyInformationAndGenerateIcp = async(req:NextApiRequest, res
             message: 'Company saved',
             data: returnData,
         });
-    } catch(e){
+    } catch(e:any){
         console.error(e);
+
+        if (e.status === 412 || e.status === 403 || e.status === 429 || e.status === 503) {
+        return res.status(422).json({
+          success: false,
+          message: "This website does not allow Web Scrapping",
+          code: e.status,
+        });
+      }
+
         return res.status(400).json({
             success: false,
             message: 'Unexpected Error',

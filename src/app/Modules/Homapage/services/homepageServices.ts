@@ -36,12 +36,22 @@ export const submitWebsiteUrl = async(
     const headers = {
         Authorization: `Bearer ${bearer}`,
     }
+
     const companiesRes = await fetchService({
         method: httpMethods.post,
         url: urlRoutes.auth.companies,
         headers,
         data: values,
     });
+
+    if(!companiesRes.data.success){
+        returnData.success = false;
+        returnData.message = companiesRes.data.message;
+
+        Notify.failure(companiesRes.data.message || returnData.message, {
+            position: 'right-top',
+        });
+    }
 
     return returnData
 }

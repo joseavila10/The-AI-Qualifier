@@ -11,6 +11,7 @@ const HomapageContainer = () => {
 
     const [loading, setLoading] = useState(true);
     const [initialValues, setInitialValues] = useState<any>({});
+    const [analyzingUrl, setAnalyzingUrl] = useState(false);
 
     useEffect(() => {
         verifyCurrentSessionOrCredentials()
@@ -28,7 +29,16 @@ const HomapageContainer = () => {
     },[]);
 
     const analyzeUrl = (vals:any) => {
-        submitWebsiteUrl(vals);
+        setAnalyzingUrl(true);
+
+        submitWebsiteUrl(vals)
+        .then(res => {
+            setAnalyzingUrl(false);
+        })
+        .catch(e => {
+            setAnalyzingUrl(false);
+            console.error(e);
+        })
     }
     
     return (
@@ -49,14 +59,15 @@ const HomapageContainer = () => {
                         {
                             name: 'website_url',
                             type: 'email',
-                            label: 'Website URL',
+                            label: 'My Website URL',
                             placeholder: 'https://www.business_url.com',
                             required: true,
                             initialValue: initialValues.website_url || null,
                         },
                         ]}
                         onSubmit={analyzeUrl}
-                        submitLabel="Login"
+                        disableSubmitBtn={analyzingUrl}
+                        submitLabel={analyzingUrl ? 'Analyzing ...' : 'Analyze using IA'}
                         cancelLabel="Cancel"
                         />
                     </div>
