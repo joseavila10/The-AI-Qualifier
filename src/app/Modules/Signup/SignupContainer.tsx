@@ -120,6 +120,7 @@ const SignupContainer = () => {
                             placeholder: '••••••••',
                             required: true,
                             initialValue: initialValues.confirmPassword,
+                            displayPassDesc: true,
                         },
                         {
                             name: 'acceptTerms',

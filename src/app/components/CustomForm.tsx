@@ -13,6 +13,7 @@ interface Field {
   onChange?: (value: string) => void;
   placeholder?: string;
   disabled?: boolean;
+  displayPassDesc?: boolean;
 }
 
 interface CustomFormProps {
@@ -196,6 +197,7 @@ const CustomForm: React.FC<CustomFormProps> = ({
             )}
 
             {['password'].includes(field.type) && (
+              <>
               <input
                 type="password"
                 name={field.name}
@@ -205,6 +207,24 @@ const CustomForm: React.FC<CustomFormProps> = ({
                 disabled={field.disabled}
                 className={fieldError || invalidField ? textInputError : textInputDefault}
               />
+
+              {field.displayPassDesc && (
+                <div className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed">
+                  <small>
+                    Password must:
+                    <ul className="list-disc list-inside mt-1 space-y-0.5">
+                      <li>Be at least 8 characters long</li>
+                      <li>Contain at least one lowercase letter (a-z)</li>
+                      <li>Contain at least one uppercase letter (A-Z)</li>
+                      <li>Contain at least one number (0-9)</li>
+                      <li>
+                        Contain at least one special character (e.g., !@#$%^&amp;*()_+)
+                      </li>
+                    </ul>
+                  </small>
+                </div>
+              )}
+              </>
             )}
 
             {['checkbox'].includes(field.type) && (
