@@ -31,7 +31,7 @@ export const handleSignupSubmit = async(
         });
 
         if(signupRes.data.success){
-            setCookie('Bearer', signupRes.data.data.token, 0.0833333);
+            setCookie('Bearer', signupRes.data.data.token, 0.166666);
             Notify.success(signupRes.data.message, {
                 position: 'right-top',
             });

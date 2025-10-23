@@ -80,12 +80,6 @@ const LoginContainer = () => {
                     required: true,
                     initialValue: initialValues.password || null,
                   },
-                  {
-                    name: 'rememberme',
-                    type: 'checkbox',
-                    label: 'Keep me logged in',
-                    initialValue: initialValues.rememberme || null,
-                  },
                 ]}
                 onSubmit={loginSubmit}
                 submitLabel="Login"

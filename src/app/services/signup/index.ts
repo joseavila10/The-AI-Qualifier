@@ -3,6 +3,8 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { isEmailValid, isPasswordValid } from "@/helpers/validations";
 import { hashPassword } from "@/helpers/bcrypt_functions";
 import { supaBaseClient } from "@/config/supabase.config";
+import { generateToken } from "@/helpers/jwt_functions";
+import { encrypt } from "@/helpers/crypto_functions";
 
 type Body = {
     full_name: string;
@@ -76,10 +78,23 @@ export const signupService = async(req:NextApiRequest, res:NextApiResponse) => {
             }); 
         }
 
+        const payload = {
+            id: createUserRes?.data[0].id,
+            loginTime: new Date(),
+        };
+
+        const payloadString = JSON.stringify(payload);
+
+        const token = generateToken({
+            data: encrypt(payloadString),
+            generated_at: new Date(),
+        });
+
         const returnData = {
             id: createUserRes.data[0].id,
             full_name: createUserRes.data[0].full_name,
             email: createUserRes.data[0].email,
+            token: token,
         }
 
         return res.status(201).json({

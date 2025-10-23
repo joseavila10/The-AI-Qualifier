@@ -15,6 +15,7 @@ const SignupContainer = () => {
     
     const [loading, setLoading] = useState(true);
     const [initialValues, setInitialValues] = useState({
+        full_name: '',
         email: '',
         password: '',
         confirmPassword: '',
@@ -48,6 +49,7 @@ const SignupContainer = () => {
         }
 
         const data = {
+            full_name: vals.full_name,
             email: vals.email,
             password: vals.password,
             language: 'eng',
@@ -84,6 +86,14 @@ const SignupContainer = () => {
 
                     <CustomForm
                     fields={[
+                        {
+                            name: 'full_name',
+                            type: 'text',
+                            label: 'Email',
+                            placeholder: 'Jhon Smith',
+                            required: true,
+                            initialValue: initialValues.full_name,
+                        },
                         {
                             name: 'email',
                             type: 'email',
