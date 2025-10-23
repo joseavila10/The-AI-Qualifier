@@ -43,7 +43,5 @@ export const submitWebsiteUrl = async(
         data: values,
     });
 
-    console.log(companiesRes);
-
     return returnData
 }

@@ -68,8 +68,8 @@ const CompaniesTable = (props:any) => {
     loading={loading}
     columns={columns}
     data={companies}
-    onEdit={(row) => console.log("Edit", row)}
-    onDelete={(row) => console.log("Delete", row)}
+    // onEdit={(row) => console.log("Edit", row)}
+    // onDelete={(row) => console.log("Delete", row)}
     />
   )
 }

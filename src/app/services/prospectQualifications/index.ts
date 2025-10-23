@@ -161,8 +161,6 @@ export const createProspectQualification = async(req:NextApiRequest, res:NextApi
         if(!icpRes) throw new Error('Error selecting ICP');
         if(!icpRes.data) throw new Error('No ICP found');
 
-        // console.log(icpRes.data)
-
         const prospectQualificationsSelectRes = await supaBaseClient
             .from("prospect_qualifications")
             .select("id, icp_id, domain")
@@ -205,13 +203,7 @@ export const createProspectQualification = async(req:NextApiRequest, res:NextApi
             .replace(/\s+/g, " ")
             .trim()
 
-        // console.log(text);
-
         const prospQualifAiResponse = await generateQualification(icpRes.data, text);
-
-        // console.log('------ prospQualifAiResponse ------')
-        // console.log(prospQualifAiResponse)
-
         const saveProspectQualification = await supaBaseClient
             .from("prospect_qualifications")
             .insert({

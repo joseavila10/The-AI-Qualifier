@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 8080",
+    "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -21,9 +21,7 @@
     "crypto": "^1.0.1",
     "dotenv": "^16.5.0",
     "jsonwebtoken": "^9.0.2",
-    "mysql2": "^3.14.1",
     "next": "15.3.1",
-    "nodemailer": "^7.0.6",
     "notiflix": "^3.2.8",
     "openai": "^6.6.0",
     "react": "^19.0.0",

@@ -6,8 +6,6 @@ import Navbar from '@/app/components/Navbar';
 import CompanyIcp from './components/CompanyIcp';
 
 const SingleCompanyContainer = (props:any) => {
-    console.log(props.companyId);
-
     const router = useRouter();
         
         const [loading, setLoading] = useState(true);
