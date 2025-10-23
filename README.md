@@ -21,7 +21,7 @@ A web app that helps companies generate **AI-based Ideal Customer Profiles (ICPs
         NODE_ENV
         ENCRYPTATION_SECRET_KEY
         JWT_SECRET_KEY
-        JWT_EXPIRES_IN_HOURS=4
+        JWT_EXPIRES_IN_HOURS
         SUPABASE_URL
         SUPABASE_KEY
         OPENAI_API_KEY
