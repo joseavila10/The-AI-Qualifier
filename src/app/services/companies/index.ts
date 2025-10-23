@@ -307,12 +307,15 @@ export const getCompanyInformationAndGenerateIcp = async(req:NextApiRequest, res
         console.error(e);
 
         if (e.status === 412 || e.status === 403 || e.status === 429 || e.status === 503) {
-        return res.status(422).json({
-          success: false,
-          message: "This website does not allow Web Scrapping",
-          code: e.status,
-        });
-      }
+            const { url } = req.body;
+            const url_normalized = normalizeWebsiteUrl(url);
+
+            return res.status(422).json({
+            success: false,
+            message: `${url_normalized} does not allow Web Scrapping`,
+            code: e.status,
+            });
+        }
 
         return res.status(400).json({
             success: false,

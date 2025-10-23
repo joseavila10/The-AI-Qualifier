@@ -223,8 +223,20 @@ export const createProspectQualification = async(req:NextApiRequest, res:NextApi
             message: 'Company saved',
             data: saveProspectQualification.data,
         });
-    } catch(e){
-        console.error(e)
+    } catch(e:any){
+        console.error(e);
+
+        if (e.status === 412 || e.status === 403 || e.status === 429 || e.status === 503) {
+            const { url } = req.body;
+            const url_normalized = normalizeWebsiteUrl(url);
+            
+            return res.status(422).json({
+                success: false,
+                message: `${url_normalized} does not allow Web Scrapping`,
+                code: e.status,
+            });
+        }
+
         return res.status(400).json({
             success: true,
             message: 'Unexpected Error',
