@@ -77,16 +77,8 @@ const SignupContainer = () => {
                 <div className="w-full max-w-md">
                     <div className="text-center mb-10">
 
-                        <div className="flex justify-center mb-4">
-                            <img
-                            src="https://placehold.co/128x128?text=Logo"
-                            alt="sparkly_board Logo"
-                            className="w-16 h-16 rounded-xl shadow-md object-contain bg-white/80 p-2"
-                            />
-                        </div>
-
                         <h1 className="text-3xl font-bold text-white drop-shadow-lg tracking-tight">
-                            Create your Sparkly Board account
+                            Create your AI Qualifier account
                         </h1>
                     </div>
 
@@ -122,7 +114,7 @@ const SignupContainer = () => {
                         {
                             name: 'acceptTerms',
                             type: 'checkbox',
-                            label: 'I agree to the Sparkly Board terms & conditions',
+                            label: 'I agree to the The AI Qualifier terms & conditions',
                             required: true,
                             initialValue: initialValues.acceptTerms,
                         },

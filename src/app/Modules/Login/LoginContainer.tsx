@@ -54,16 +54,9 @@ const LoginContainer = () => {
           <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-400 via-blue-600 to-blue-800 dark:from-blue-900 dark:via-blue-950 dark:to-black px-4">
             <div className="w-full max-w-md">
               <div className="text-center mb-10">
-                <div className="flex justify-center mb-4">
-                  <img
-                    src="https://placehold.co/128x128?text=Logo"
-                    alt="sparkly_board Logo"
-                    className="w-16 h-16 rounded-xl shadow-md object-contain bg-white/80 p-2"
-                  />
-                </div>
 
                 <h1 className="text-3xl font-bold text-white drop-shadow-lg tracking-tight">
-                  Login to continue
+                  Login
                 </h1>
               </div>
 
