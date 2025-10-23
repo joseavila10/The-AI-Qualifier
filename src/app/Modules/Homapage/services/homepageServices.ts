@@ -44,7 +44,14 @@ export const submitWebsiteUrl = async(
         data: values,
     });
 
-    if(!companiesRes.data.success){
+    if(companiesRes.data.success){
+        Notify.success('Website analyzed. Redirecting to companies section', {
+            position: 'right-top',
+        })
+        setTimeout(() => {
+            window.location.href = `/companies/${companiesRes.data.data.companyRecord.id}`;
+        }, 2000);
+    }else if(!companiesRes.data.success){
         returnData.success = false;
         returnData.message = companiesRes.data.message;
 
