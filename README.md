@@ -9,7 +9,7 @@ A web app that helps companies generate **AI-based Ideal Customer Profiles (ICPs
 1. Clone the repo:
    ```bash
    git clone git@github.com:joseavila10/The-AI-Qualifier.git
-   cd The-AI-Qualifier.git
+   cd The-AI-Qualifier
    ```
 2. Install dependencies:
    ```bash
