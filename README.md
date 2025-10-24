@@ -8,8 +8,8 @@ A web app that helps companies generate **AI-based Ideal Customer Profiles (ICPs
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/yourusername/b2b-icp-app.git
-   cd b2b-icp-app
+   git clone git@github.com:joseavila10/The-AI-Qualifier.git
+   cd The-AI-Qualifier.git
    ```
 2. Install dependencies:
    ```bash
